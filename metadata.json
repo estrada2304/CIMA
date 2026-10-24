@@ -1,0 +1,10 @@
+{
+  "name": "CIMA",
+  "description": "CIMA - Sistema de gestión de inventarios, facturación y compras para Venezuela con colores naranja, blanco y negro.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

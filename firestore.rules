@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // SigaInvent rules for cloud persistence
+    match /products/{document} {
+      allow read, write: if true;
+    }
+    match /clients/{document} {
+      allow read, write: if true;
+    }
+    match /suppliers/{document} {
+      allow read, write: if true;
+    }
+    match /settings/{document} {
+      allow read, write: if true;
+    }
+    match /users/{document} {
+      allow read, write: if true;
+    }
+    match /transactions/{document} {
+      allow read, write: if true;
+    }
+    match /consignments/{document} {
+      allow read, write: if true;
+    }
+    match /consignmentItems/{document} {
+      allow read, write: if true;
+    }
+    match /purchases/{document} {
+      allow read, write: if true;
+    }
+    match /active_sessions/{document} {
+      allow read, write: if true;
+    }
+    match /live_activities/{document} {
+      allow read, write: if true;
+    }
+  }
+}

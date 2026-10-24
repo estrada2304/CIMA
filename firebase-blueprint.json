@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Inventory product item in SigaInvent",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique barcode or SKU identifier" },
+        "name": { "type": "string", "description": "Descriptive name of product" },
+        "category": { "type": "string", "description": "Category group" },
+        "sku": { "type": "string", "description": "Product code SKU" },
+        "costUSD": { "type": "number", "description": "Cost in USD" },
+        "priceUSD": { "type": "number", "description": "Retail price in USD" },
+        "stock": { "type": "number", "description": "Physical quantity in warehouse" },
+        "minStock": { "type": "number", "description": "Low stock alert threshold" }
+      },
+      "required": ["id", "name", "category", "sku", "costUSD", "priceUSD", "stock"]
+    },
+    "Client": {
+      "title": "Client",
+      "description": "Customer entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rif": { "type": "string" }
+      },
+      "required": ["id", "name", "rif"]
+    },
+    "Supplier": {
+      "title": "Supplier",
+      "description": "Supplier entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rif": { "type": "string" }
+      },
+      "required": ["id", "name", "rif"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Commercial transaction (invoice, quote, receipt, consignment)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "totalUSD": { "type": "number" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "type", "totalUSD", "timestamp"]
+    },
+    "Purchase": {
+      "title": "Purchase",
+      "description": "Warehouse replenishment purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "supplierName": { "type": "string" },
+        "totalUSD": { "type": "number" }
+      },
+      "required": ["id", "supplierName", "totalUSD"]
+    },
+    "User": {
+      "title": "User",
+      "description": "System staff user account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "username", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Store inventory products"
+    },
+    "/clients/{clientId}": {
+      "schema": "Client",
+      "description": "Store clients and buyers"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": "Supplier",
+      "description": "Store commercial suppliers"
+    },
+    "/transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Store commercial sales and invoices"
+    },
+    "/purchases/{purchaseId}": {
+      "schema": "Purchase",
+      "description": "Store warehouse purchase orders"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Store user accounts and role permissions"
+    }
+  }
+}
